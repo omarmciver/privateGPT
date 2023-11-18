@@ -7,7 +7,7 @@ services:
     volumes:
       - llm_models_volume:/home/root/app/models
       - chromadb_volume:/home/root/app/local_data
-      - S:/ingest_docs:/ingest_docs
+      - /mnt/s/ingest_docs:/ingest_docs
     # - S:/LLMs/TheBloke/Mistral-7B-Instruct-v0.1-GGUF:/home/worker/app/models
     # entrypoint: sleep infinity
 

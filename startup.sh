@@ -2,7 +2,8 @@
 
 # Ingest files
 echo "Ingesting files..."
-python /home/root/app/scripts/ingest_files.py /ingest_docs
+ls -laR scripts
+.venv/bin/python scripts/ingest_folder.py /ingest_docs
 
 # Start the main application
 echo "Starting Private GPT..."
