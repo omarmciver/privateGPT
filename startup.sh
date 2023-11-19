@@ -2,7 +2,6 @@
 
 # Ingest files
 echo "Ingesting files..."
-ls -laR scripts
 .venv/bin/python scripts/ingest_folder.py /ingest_docs
 
 # Start the main application

@@ -3,6 +3,11 @@
 import argparse
 import logging
 from pathlib import Path
+import sys
+
+# Add the root directory to the Python path
+root_dir = Path(__file__).resolve().parent.parent
+sys.path.append(str(root_dir))
 
 from private_gpt.di import global_injector
 from private_gpt.server.ingest.ingest_service import IngestService

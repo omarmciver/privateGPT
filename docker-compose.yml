@@ -6,11 +6,10 @@ services:
       - 8080:8080
     volumes:
       - llm_models_volume:/home/root/app/models
-      - chromadb_volume:/home/root/app/local_data
-      - /mnt/s/ingest_docs:/ingest_docs
-    # - S:/LLMs/TheBloke/Mistral-7B-Instruct-v0.1-GGUF:/home/worker/app/models
+      - chromadb_volume_oars:/home/root/app/local_data
+      - /home/omar/Development/ingest/OARS:/ingest_docs
     # entrypoint: sleep infinity
 
 volumes:
   llm_models_volume:
-  chromadb_volume:
+  chromadb_volume_oars:
