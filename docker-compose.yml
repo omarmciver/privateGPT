@@ -7,7 +7,7 @@ services:
     volumes:
       - llm_models_volume:/home/root/app/models
       - chromadb_volume_oars:/home/root/app/local_data
-      - /home/omar/Development/ingest/OARS:/ingest_docs
+      - /home/omar/Development/ingest/OARS/pkg-shared:/ingest_docs
     # entrypoint: sleep infinity
 
 volumes:
