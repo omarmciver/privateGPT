@@ -4,6 +4,7 @@ import argparse
 import logging
 from pathlib import Path
 import sys
+import hashlib
 
 # Add the root directory to the Python path
 root_dir = Path(__file__).resolve().parent.parent
@@ -76,6 +77,15 @@ parser.add_argument(
     default=None,
 )
 args = parser.parse_args()
+
+ingested_files_file = Path("/home/root/app/local_data/ingested_files")
+ingested_files = set()
+
+# Load ingested file identifiers
+if ingested_files_file.exists():
+    with ingested_files_file.open("r") as file:
+        ingested_files = set(file.read().splitlines())
+
 
 # Set up logging to a file if a path is provided
 if args.log_file:
