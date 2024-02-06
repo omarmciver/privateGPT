@@ -1,15 +1,18 @@
 version: '3'
 services:
   privategpt:
-    image: privategpt:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - 8080:8080
     volumes:
       - llm_models_volume:/home/root/app/models
-      - chromadb_volume_oars:/home/root/app/local_data
-      - /home/omar/Development/ingest/OARS/pkg-shared:/ingest_docs
+      - chromadb_volume_personal:/home/root/app/local_data
+      - /home/omar/Development/ingest/personal:/ingest_docs
+      # - /home/omar/Development/ingest/OARS/pkg-shared:/ingest_docs
     # entrypoint: sleep infinity
 
 volumes:
   llm_models_volume:
-  chromadb_volume_oars:
+  chromadb_volume_personal:
