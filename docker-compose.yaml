@@ -1,14 +1,19 @@
+version: '3'
 services:
-  private-gpt:
+  privategpt:
     build:
-      dockerfile: Dockerfile.local
-    volumes:
-      - ./local_data/:/home/worker/app/local_data
-      - ./models/:/home/worker/app/models
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - 8001:8080
-    environment:
-      PORT: 8080
-      PGPT_PROFILES: docker
-      PGPT_MODE: local
+      - 8080:8080
+    volumes:
+      - llm_models_volume:/home/root/app/models
+      - chromadb_volume_personal:/home/root/app/local_data
+      # - /home/omar/Development/ingest/personal:/ingest_docs
+      - /home/omar/Development/omarmciver/openai-email-sorter/emails:/ingest_docs
+      # - /home/omar/Development/ingest/OARS/pkg-shared:/ingest_docs
+    # entrypoint: sleep infinity
 
+volumes:
+  llm_models_volume:
+  chromadb_volume_personal:

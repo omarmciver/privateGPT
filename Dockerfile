@@ -47,7 +47,7 @@ COPY --chown=root --from=dependencies /home/root/app/.venv/ .venv
 
 # Now copy the rest of the app
 COPY --chown=root private_gpt/ private_gpt
-COPY --chown=root docs/ docs
+# COPY --chown=root docs/ docs
 COPY --chown=root *.yaml *.md ./
 COPY --chown=root scripts/ scripts
 COPY startup.sh .
